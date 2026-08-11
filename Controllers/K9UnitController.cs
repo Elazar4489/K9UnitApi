@@ -52,7 +52,10 @@ namespace K9UnitApi.Controllers
 
         public async Task<IActionResult> CreateTrainingSession([FromBody] CreateTrainigDto dto, [FromQuery] int dogId)
         {
-            //if (_repository.)
+            if (await _repository.GetDogById(dogId) is null)
+            {
+                return NotFound();
+            }
             var trainingSession = new TrainingSession
             {
                 SessionDate = dto.SessionDate,
