@@ -20,7 +20,7 @@ namespace K9UnitApi.Models
         [MaxLength(15)]
         public string MicrochipId { get; set; } = string.Empty;
         [Required]
-        //חייב להיות תאריך בעבר )לא היום ולאבעתיד(
+        [PastDate]
         public DateTime DateOfBirth { get; set; }
         [Required]
         [EnumDataType(typeof(SpecialtyEnum))]

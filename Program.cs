@@ -12,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("K9UnitConnecti
 
 builder.Services.AddDbContext<K9UnitDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-//builder.Services.AddScoped(IK9UnitRepository, K9UnitRepository);
+builder.Services.AddScoped<IK9UnitRepository, K9UnitRepository>();
 
 var app = builder.Build();
 
